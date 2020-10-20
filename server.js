@@ -1,6 +1,7 @@
-const express = require("express");
-const fs = require("fs");
-
+var express = require("express");
+var fs = require("fs");
+var data = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
+const path = require("path");
 
 // Sets up the Express App
 // =============================================================
@@ -11,23 +12,25 @@ var PORT = process.env.PORT || 3001
 // =============================================================
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use("/assets", express.static("./public/assets"));
+app.use("/assets", express.static("public/assets"));
 
 // Call Root HTML Page
 app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "./public/index.html"));
 });
+
 // Call Note Taking HTML Page
 app.get("/notes", function(req, res) {
     res.sendFile(path.join(__dirname, "./public/notes.html"));
 });
 
 
-
+// Call
 app.get("/api/notes", function(req, res) {
     res.json(data);
 });
 
+//Save
 app.post("/api/notes", function(req, res) {
     // Set newNote to the (note) object provided by index.js and give it a uniqueID
     let newNote = req.body;
@@ -41,7 +44,8 @@ app.post("/api/notes", function(req, res) {
     res.json(data);    
 });
 
-// index.js uses /api/notes/ + id, make sure to use variable /:id and check notes against the ID provided
+// Delete - index.js uses /api/notes/ + id
+// make sure to use variable /:id and check notes against the ID provided
 app.delete("/api/notes/:id", function(req, res) {
     let noteId = req.params.id;
     let newId = 0;
