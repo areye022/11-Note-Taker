@@ -1,7 +1,9 @@
 var express = require("express");
 var fs = require("fs");
-var data = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
 const path = require("path");
+
+// Get pre-existing data from the DB.JSON file
+var data = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
 
 // Sets up the Express App
 // =============================================================
@@ -23,7 +25,6 @@ app.get("/", function(req, res) {
 app.get("/notes", function(req, res) {
     res.sendFile(path.join(__dirname, "./public/notes.html"));
 });
-
 
 // Call
 app.get("/api/notes", function(req, res) {
