@@ -9,7 +9,7 @@
     
 <a name="desc"></a>
 ## 1. Description
-When creating an open source project on GitHub, it is important to have a quality README with information about the app: what is the app for, how to use the app, how to install it, how to report issues, and how to make contributions so that other developers are more likely to use and contribute to the success of the project. A command-line application will allow for quick and easy generation of a project README to get started quickly. This will allow a project creator to spend more time working on finishing the project and less time creating a good README.
+For users that need to keep track of a lot of information, it's easy to forget or be unable to recall something important. Being able to take persistent notes allows users to have written information available when needed.
     
 <a name="install"></a>
 ## 2. Installation
@@ -18,7 +18,7 @@ server.js file must be ran using node.js or nodemon
     
 <a name="usage"></a>
 ## 3. Usage
-Answer each question as it appears. Be as descriptive as possible. Once you have finished answering the question, press 'enter' on your keyboard to go to the next question. Once all questions have been completed, you will be informed that the file has been successfully created. Go into the 'createdFile' folder and your new README.md file will be ready for you.
+You will be greated at the intro page when you first come to the site. Click the "Get Started" button to begin. Make sure your notes have both a Title and a body of text that represent your note. Once you have writen down all that you need to, click the "Save" icon. (Be aware that the "Save" icon will only appear once you have a Title and notes.) The note will then be saved to the left of the site showing the Title but not the body of text. You can retrieve the note by clicking on the title in the left pannel. Clicking the red trash can icon will remove the note from your list. To create a new note, click on the pencile icon.
 <br>
 <h3>Take Notes:</h3>
 <img src="./public/assets/image/NoteTakerScreenShot3.PNG">
