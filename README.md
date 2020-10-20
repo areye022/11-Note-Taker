@@ -20,13 +20,13 @@ server.js file must be ran using node.js or nodemon
 ## 3. Usage
 Answer each question as it appears. Be as descriptive as possible. Once you have finished answering the question, press 'enter' on your keyboard to go to the next question. Once all questions have been completed, you will be informed that the file has been successfully created. Go into the 'createdFile' folder and your new README.md file will be ready for you.
 <br>
-<h2>Take Notes:</h2>
+<h3>Take Notes:</h3>
 <img src="./public/assets/image/NoteTakerScreenShot3.PNG">
 <br>
-<h2>Save Multiple Notes:</h2>
+<h3>Save Multiple Notes:</h3>
 <img src="./public/assets/image/NoteTakerScreenShot.PNG">
 <br>
-<h2>Remove Any Note:</h2>
+<h3>Remove Any Note:</h3>
 <img src="/public/assets/image/NoteTakerScreenShot2.PNG">
     
 <a name="lic"></a>
