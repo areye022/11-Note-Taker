@@ -13,9 +13,49 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use("/assets", express.static("./public/assets"));
 
+// Call Root HTML Page
+app.get("/", function(req, res) {
+    res.sendFile(path.join(__dirname, "./public/index.html"));
+});
+// Call Note Taking HTML Page
+app.get("/notes", function(req, res) {
+    res.sendFile(path.join(__dirname, "./public/notes.html"));
+});
 
-require("./backend/html-routes")(app);
-require("./backend/api-routes")(app);
+
+
+app.get("/api/notes", function(req, res) {
+    res.json(data);
+});
+
+app.post("/api/notes", function(req, res) {
+    // Set newNote to the (note) object provided by index.js and give it a uniqueID
+    let newNote = req.body;
+    let uniqueId = (data.length).toString();
+    newNote.id = uniqueId;
+    data.push(newNote);
+    // Write to DB.JSON file with updated data
+    fs.writeFileSync("./db/db.json", JSON.stringify(data), function(err) {
+        if (err) throw (err);        
+    }); 
+    res.json(data);    
+});
+
+// index.js uses /api/notes/ + id, make sure to use variable /:id and check notes against the ID provided
+app.delete("/api/notes/:id", function(req, res) {
+    let noteId = req.params.id;
+    let newId = 0;
+    // Remove based on ID with .filter
+    data = data.filter(currentNote => { return currentNote.id != noteId });
+    // Reassign ID number after .filter function
+    for (currentNote of data) {
+        currentNote.id = newId.toString();
+        newId++;
+    }
+    // Rewrite DB.JSON file with updated data
+    fs.writeFileSync("./db/db.json", JSON.stringify(data));
+    res.json(data);
+});
 
 // Starts the server to begin listening
 // =============================================================
